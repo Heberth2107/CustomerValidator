@@ -91,6 +91,26 @@ public class Customer {
             
         }
        
+            //Classe 2
+        if(this.classe == 1){
+            //Last Purhase in 2024
+            if (this.lastPurchase == 2024)
+            {
+                this.discountAmount = this.totalPurchase * 0.85;
+            }
+            //No purchase in the last 5 years
+            if (this.lastPurchase < 2019)
+            {
+                this.discountAmount = this.totalPurchase * 0.95;
+            }
+            else if (this.lastPurchase < 2024)
+            {
+                //Last purchase less than 2024 and greater than 2019
+                this.discountAmount = this.totalPurchase * 0.87;
+            }
+            
+        }
+       
         
         return this.discountAmount;
     }
