@@ -15,7 +15,6 @@ public class Customer {
     private double totalPurchase;
     private int classe;
     private int lastPurchase;
-    private double discountAmount;
     
     public String GetFirstName(){
         return firstName;
@@ -69,24 +68,24 @@ public class Customer {
         
     }
     
-    public double CalculateDiscount(){
+    public double CalculateTotalValue(){
             
             //Classe 1
         if(this.classe == 1){
             //Last Purhase in 2024
             if (this.lastPurchase == 2024)
             {
-                this.discountAmount = this.totalPurchase * 0.70;
+                this.totalPurchase = this.totalPurchase * 0.70;
             }
             //No purchase in the last 5 years
             if (this.lastPurchase < 2019)
             {
-                this.discountAmount = this.totalPurchase * 0.90;
+                this.totalPurchase = this.totalPurchase * 0.90;
             }
             else if (this.lastPurchase < 2024)
             {
                 //Last purchase less than 2024 and greater than 2019
-                this.discountAmount = this.totalPurchase * 0.80;
+                this.totalPurchase = this.totalPurchase * 0.80;
             }
             
         }
@@ -96,22 +95,53 @@ public class Customer {
             //Last Purhase in 2024
             if (this.lastPurchase == 2024)
             {
-                this.discountAmount = this.totalPurchase * 0.85;
+                this.totalPurchase = this.totalPurchase * 0.85;
             }
             //No purchase in the last 5 years
             if (this.lastPurchase < 2019)
             {
-                this.discountAmount = this.totalPurchase * 0.95;
+                this.totalPurchase = this.totalPurchase * 0.95;
             }
             else if (this.lastPurchase < 2024)
             {
                 //Last purchase less than 2024 and greater than 2019
-                this.discountAmount = this.totalPurchase * 0.87;
+                this.totalPurchase = this.totalPurchase * 0.87;
             }
+            
+        }
+        
+        //Classe 2
+        if(this.classe == 2){
+            //Last Purhase in 2024
+            if (this.lastPurchase == 2024)
+            {
+                this.totalPurchase = this.totalPurchase * 0.85;
+            }
+            //No purchase in the last 5 years
+            if (this.lastPurchase < 2019)
+            {
+                this.totalPurchase = this.totalPurchase * 0.95;
+            }
+            else if (this.lastPurchase < 2024)
+            {
+                //Last purchase less than 2024 and greater than 2019
+                this.totalPurchase = this.totalPurchase * 0.87;
+            }
+            
+        }
+        
+        //Classe 3
+        if(this.classe == 3){
+            //Last Purhase in 2024
+            if (this.lastPurchase == 2024)
+            {
+                this.totalPurchase = this.totalPurchase * 0.97;
+            }
+            
             
         }
        
         
-        return this.discountAmount;
+        return this.totalPurchase;
     }
 }
