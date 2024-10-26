@@ -7,7 +7,9 @@ package customervalidator;
 import entities.Customer;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import java.util.HashSet;
@@ -98,8 +100,16 @@ public class CustomerValidator {
 
         //if the data is valid, you have to calculate the discount
         if (!erro){
+            double totalValue = customer.CalculateTotalValue();
             System.out.println(customer.GetFirstName() + " " + customer.GetSecondName());
-            System.out.println(customer.CalculateTotalValue());
+            System.out.println(totalValue);
+            
+            //FileWriter fileWriter = new FileWriter("C:\\Users\\heber\\Downloads\\customerdiscount.txt");
+            PrintWriter writer = new PrintWriter("customerdiscount.txt", "UTF-8");
+            writer.println(customer.GetFirstName() + " " + customer.GetSecondName());
+            writer.println(totalValue);
+            writer.close();
+            
         }
             
         
