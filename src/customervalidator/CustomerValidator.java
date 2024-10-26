@@ -7,18 +7,17 @@ package customervalidator;
 import entities.Customer;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
-import java.util.HashSet;
 import utils.StringFunctions;
 
 
 /**
  *
  * @author heber
+ * https://github.com/Heberth2107/CustomerValidator
  */
 public class CustomerValidator {
 
