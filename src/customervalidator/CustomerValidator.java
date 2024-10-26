@@ -33,6 +33,7 @@ public class CustomerValidator {
         int lineCount = 0;
         String line;
         Customer customer = null;
+        StringFunctions validator = null;
         //Start the loop to navigate between the lines
         while((line = buffer.readLine()) != null){
             
@@ -59,7 +60,16 @@ public class CustomerValidator {
                 lineCount = 0;
             } 
             
+            //Validations
+            //the first name must be only letters
+            if (!validator.containOnlyLetters(customer.GetFirstName())){
+                System.out.println("The First Name must be only letters");
+            }
             
+            //the second name can be letters and/or numbers
+            if (!validator.containNumbersOrLetters(customer.GetSecondName())){
+                System.out.println("The Second Name must contain only letters and numbers");
+            }
              
             System.out.println(customer.GetFirstName() + " " + customer.GetSecondName());
             System.out.println(customer.CalcularDesconto());
