@@ -27,13 +27,13 @@ public class CustomerValidator {
     public static void main(String[] args) {
         // TODO code application logic here
     //read file
-    try(BufferedReader buffer = new BufferedReader(new FileReader("C:\\Users\\heber\\Downloads\\customers.txt")))
+    try(BufferedReader buffer = new BufferedReader(new FileReader("C:\\Users\\heber\\Downloads\\teste.txt")))
     {
         //create variables
         int lineCount = 0;
         String line;
         Customer customer = null;
-        StringFunctions validator = null;
+        StringFunctions validator = new StringFunctions();
         boolean erro = false;
         //Start the loop to navigate between the lines
         while((line = buffer.readLine()) != null){
@@ -60,49 +60,49 @@ public class CustomerValidator {
                 customer.SetLastPurchase(parseInt(line));
                 lineCount = 0;
             } 
-            
-            //Validations
-            //the first name must be only letters
-            if (!validator.containOnlyLetters(customer.GetFirstName())){
-                erro = true;
-                System.out.println("The First Name must be only letters");
-                
-            }
-            
-            //the second name can be letters and/or numbers
-            if (!validator.containNumbersOrLetters(customer.GetSecondName())){
-                erro = true;
-                System.out.println("The Second Name must contain only letters and numbers");
-            }
-            
-            //The second name can not be null
-            if (customer.GetSecondName()== null){
-                erro = true;
-                System.out.println("The second name can not be null");
-                    
-            }
-            
-            //the class must be an integer between 1 to 3 
-            if (customer.GetClasse()<1 || customer.GetClasse()>3){
-                erro = true;
-                System.out.println("The class must be an integer between 1 to 3");
-                
-            }
-            
-            //Last Purchase must be a valid year
-            //I am considering 10 years as a valid period
-            if (customer.GetLastPurchase()>2024 || customer.GetLastPurchase()<2014){
-                erro = true;
-                System.out.println("Must be than 2014 and less than 2024");
-            }
-            
-            //if the data is valid, you have to calculate the discount
-            if (!erro){
-                System.out.println(customer.GetFirstName() + " " + customer.GetSecondName());
-                System.out.println(customer.CalculateDiscount());
-            }
-            
         }
+        //Validations
+        //the first name must be only letters
+        if (!validator.containOnlyLetters(customer.GetFirstName())){
+            erro = true;
+            System.out.println("The First Name must be only letters");
+
+        }
+
+        //the second name can be letters and/or numbers
+        if (!validator.containNumbersOrLetters(customer.GetSecondName())){
+            erro = true;
+            System.out.println("The Second Name must contain only letters and numbers");
+        }
+
+        //The second name can not be null
+        if (customer.GetSecondName()== null){
+            erro = true;
+            System.out.println("The second name can not be null");
+
+        }
+
+        //the class must be an integer between 1 to 3 
+        if (customer.GetClasse()<1 || customer.GetClasse()>3){
+            erro = true;
+            System.out.println("The class must be an integer between 1 to 3");
+
+        }
+
+        //Last Purchase must be a valid year
+        //I am considering 10 years as a valid period
+        if (customer.GetLastPurchase()>2024 || customer.GetLastPurchase()<2014){
+            erro = true;
+            System.out.println("Must be greater than 2014 and less than 2024");
+        }
+
+        //if the data is valid, you have to calculate the discount
+        if (!erro){
+            System.out.println(customer.GetFirstName() + " " + customer.GetSecondName());
+            System.out.println(customer.CalculateTotalValue());
+        }
+            
+        
         
     }
     catch(IOException e){
