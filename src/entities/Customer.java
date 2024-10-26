@@ -56,18 +56,6 @@ public class Customer {
         this.classe = value;
     }
     
-    public boolean ValidarClasse(){
-        
-        boolean valid = true;
-        
-        if(this.classe <= 0 || this.classe >= 4){
-            valid = false;
-        }
-        
-        return valid;
-        
-    }
-    
     public double CalculateTotalValue(){
             
             //Classe 1
@@ -86,26 +74,6 @@ public class Customer {
             {
                 //Last purchase less than 2024 and greater than 2019
                 this.totalPurchase = this.totalPurchase * 0.80;
-            }
-            
-        }
-       
-            //Classe 2
-        if(this.classe == 1){
-            //Last Purhase in 2024
-            if (this.lastPurchase == 2024)
-            {
-                this.totalPurchase = this.totalPurchase * 0.85;
-            }
-            //No purchase in the last 5 years
-            if (this.lastPurchase < 2019)
-            {
-                this.totalPurchase = this.totalPurchase * 0.95;
-            }
-            else if (this.lastPurchase < 2024)
-            {
-                //Last purchase less than 2024 and greater than 2019
-                this.totalPurchase = this.totalPurchase * 0.87;
             }
             
         }
