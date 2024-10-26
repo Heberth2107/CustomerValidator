@@ -19,7 +19,7 @@ import utils.StringFunctions;
  * @author heber
  * https://github.com/Heberth2107/CustomerValidator
  */
-public class CustomerValidator {
+public class CustomerDiscountCalculator {
 
     /**
      * @param args the command line arguments
