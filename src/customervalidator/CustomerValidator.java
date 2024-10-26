@@ -29,7 +29,7 @@ public class CustomerValidator {
     public static void main(String[] args) {
         // TODO code application logic here
     //read file
-    try(BufferedReader buffer = new BufferedReader(new FileReader("C:\\Users\\heber\\Downloads\\teste.txt")))
+    try(BufferedReader buffer = new BufferedReader(new FileReader("test.txt")))
     {
         //create variables
         int lineCount = 0;
