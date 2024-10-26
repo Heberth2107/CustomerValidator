@@ -99,7 +99,7 @@ public class CustomerValidator {
             //if the data is valid, you have to calculate the discount
             if (!erro){
                 System.out.println(customer.GetFirstName() + " " + customer.GetSecondName());
-                System.out.println(customer.CalcularDesconto());
+                System.out.println(customer.CalculateDiscount());
             }
             
         }
