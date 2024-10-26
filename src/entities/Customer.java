@@ -69,14 +69,28 @@ public class Customer {
         
     }
     
-    public double CalcularDesconto(){
-        
-        if(this.classe == 1  && this.lastPurchase == 2024){
-            this.discountAmount = this.totalPurchase * 0.70;
+    public double CalculateDiscount(){
+            
+            //Classe 1
+        if(this.classe == 1){
+            //Last Purhase in 2024
+            if (this.lastPurchase == 2024)
+            {
+                this.discountAmount = this.totalPurchase * 0.70;
+            }
+            //No purchase in the last 5 years
+            if (this.lastPurchase < 2019)
+            {
+                this.discountAmount = this.totalPurchase * 0.90;
+            }
+            else if (this.lastPurchase < 2024)
+            {
+                //Last purchase less than 2024 and greater than 2019
+                this.discountAmount = this.totalPurchase * 0.80;
+            }
+            
         }
-        else if(this.classe == 1  && this.lastPurchase == 2024){
-            this.discountAmount = this.totalPurchase * 0.70;
-        }
+       
         
         return this.discountAmount;
     }
