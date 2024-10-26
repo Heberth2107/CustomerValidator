@@ -70,6 +70,24 @@ public class CustomerValidator {
             if (!validator.containNumbersOrLetters(customer.GetSecondName())){
                 System.out.println("The Second Name must contain only letters and numbers");
             }
+            
+            //The second name can not be null
+            if (customer.GetSecondName()== null){
+                System.out.println("The second name can not be null");
+                    
+            }
+            
+            //the class must be an integer between 1 to 3 
+            if (customer.GetClasse()<1 || customer.GetClasse()>3){
+                System.out.println("The class must be an integer between 1 to 3");
+                
+            }
+            
+            //Last Purchase must be a valid year
+            //I am considering 10 years as a valid period
+            if (customer.GetLastPurchase()>2024 || customer.GetLastPurchase()<2014){
+                System.out.println("Must be than 2014 and less than 2024");
+            }
              
             System.out.println(customer.GetFirstName() + " " + customer.GetSecondName());
             System.out.println(customer.CalcularDesconto());
